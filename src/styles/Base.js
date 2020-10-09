@@ -15,11 +15,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .react_trello_dragClass {
-    transform: rotate(-3deg);
+    transform: rotate(3deg);
   }
 
   .react_trello_dragLaneClass {
-    transform: rotate(-3deg);
+    transform: rotate(3deg);
   }
 
   .icon-overflow-menu-horizontal:before {
@@ -57,7 +57,7 @@ export const CustomPopoverContent = styled(PopoverContent)`
   color: #000;
   padding: 5px;
   left: 50%;
-  transform: translateX(50%);
+  transform: translateX(-50%);
   ${props =>
     props.active &&
     `
