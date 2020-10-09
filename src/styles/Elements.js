@@ -5,7 +5,7 @@ export const DeleteWrapper = styled.div`
   text-align: center;
   position: absolute;
   top: -1px;
-  right: 2px;
+  left: 2px;
   cursor: pointer;
 `
 
