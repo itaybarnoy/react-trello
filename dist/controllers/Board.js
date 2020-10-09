@@ -57,7 +57,11 @@ class Board extends _react.Component {
     }, /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(components.GlobalStyle, null), /*#__PURE__*/_react.default.createElement(_BoardContainer.default, (0, _extends2.default)({
       id: this.id
     }, this.props, {
-      className: allClassNames
+      className: allClassNames,
+      style: {
+        position: 'absolute',
+        right: '10px'
+      }
     }))));
   }
 

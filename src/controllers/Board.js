@@ -33,6 +33,10 @@ export default class Board extends Component {
             id={this.id}
             {...this.props}
             className={allClassNames}
+            style={{
+              position: 'absolute',
+              right: '10px'
+            }}
           />
        </>
       </Provider>
