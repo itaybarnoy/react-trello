@@ -228,6 +228,7 @@ class BoardContainer extends _react.Component {
             otherProps = (0, _objectWithoutProperties2.default)(lane, ["id", "droppable"]);
 
       const laneToRender = /*#__PURE__*/_react.default.createElement(_Lane.default, (0, _extends2.default)({
+        dir: "rtl",
         key: id,
         boardId: this.groupName,
         components: components,

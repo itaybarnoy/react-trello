@@ -179,6 +179,7 @@ class BoardContainer extends Component {
               const {id, droppable, ...otherProps} = lane
               const laneToRender = (
                 <Lane
+                  dir='rtl'
                   key={id}
                   boardId={this.groupName}
                   components={components}
