@@ -57,7 +57,7 @@ export const CustomPopoverContent = styled(PopoverContent)`
   color: #000;
   padding: 5px;
   right: 50%;
-  transform: translateX(50%);
+  transform: translateX(-50%);
   ${props =>
     props.active &&
     `
