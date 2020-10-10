@@ -164,7 +164,7 @@ class BoardContainer extends Component {
     ])
 
     return (
-      <components.BoardWrapper style={style} {...otherProps} draggable={false}>
+      <components.BoardWrapper style={{...style, marginLeft: 'auto'}} {...otherProps} draggable={false}>
         {canAddLanes && (
           <Container orientation="horizontal">
             {editable && !addLaneMode ? <components.NewLaneSection t={t} onClick={this.showEditableLane} /> : (
@@ -181,10 +181,7 @@ class BoardContainer extends Component {
             onDrop={this.onLaneDrop}
             lockAxis="x"
             getChildPayload={index => this.getLaneDetails(index)}
-            groupName={this.groupName}
-            style={{
-              marginLeft: 'auto'
-            }}>
+            groupName={this.groupName}>
             {reducerData.lanes.slice(0).reverse().map((lane, index) => {
               const {id, droppable, ...otherProps} = lane
               const laneToRender = (
@@ -195,7 +192,7 @@ class BoardContainer extends Component {
                   components={components}
                   id={id}
                   getCardDetails={this.getCardDetails}
-                  index={index}
+                  index={lanes.length - index}
                   droppable={droppable === undefined ? true : droppable}
                   style={laneStyle || lane.style || {}}
                   labelStyle={lane.labelStyle || {}}

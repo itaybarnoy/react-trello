@@ -210,7 +210,9 @@ class BoardContainer extends _react.Component {
 
     const passthroughProps = (0, _pick.default)(this.props, ['onCardMoveAcrossLanes', 'onLaneScroll', 'onLaneDelete', 'onLaneUpdate', 'onCardClick', 'onBeforeCardDelete', 'onCardDelete', 'onCardAdd', 'onLaneClick', 'laneSortFunction', 'draggable', 'laneDraggable', 'cardDraggable', 'collapsibleLanes', 'canAddLanes', 'hideCardDeleteIcon', 'tagStyle', 'handleDragStart', 'handleDragEnd', 'cardDragClass', 'editLaneTitle', 't']);
     return /*#__PURE__*/_react.default.createElement(components.BoardWrapper, (0, _extends2.default)({
-      style: style
+      style: _objectSpread(_objectSpread({}, style), {}, {
+        marginLeft: 'auto'
+      })
     }, otherProps, {
       draggable: false
     }), canAddLanes && /*#__PURE__*/_react.default.createElement(_Container.default, {
@@ -230,10 +232,7 @@ class BoardContainer extends _react.Component {
       onDrop: this.onLaneDrop,
       lockAxis: "x",
       getChildPayload: index => this.getLaneDetails(index),
-      groupName: this.groupName,
-      style: {
-        marginLeft: 'auto'
-      }
+      groupName: this.groupName
     }, reducerData.lanes.slice(0).reverse().map((lane, index) => {
       const id = lane.id,
             droppable = lane.droppable,
@@ -246,7 +245,7 @@ class BoardContainer extends _react.Component {
         components: components,
         id: id,
         getCardDetails: this.getCardDetails,
-        index: index,
+        index: lanes.length - index,
         droppable: droppable === undefined ? true : droppable,
         style: laneStyle || lane.style || {},
         labelStyle: lane.labelStyle || {},
