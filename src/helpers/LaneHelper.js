@@ -122,6 +122,8 @@ const LaneHelper = {
   },
 
   moveLane: (state, {oldIndex, newIndex}) => {
+    oldIndex = state.lanes.length - oldIndex - 1
+    newIndex = state.lanes.length - newIndex - 1
     const laneToMove = state.lanes[oldIndex]
     const tempState = update(state, {lanes: {$splice: [[oldIndex, 1]]}});
     return update(tempState, {lanes: {$splice: [[newIndex, 0, laneToMove]]}})

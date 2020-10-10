@@ -233,6 +233,8 @@ const LaneHelper = {
     oldIndex,
     newIndex
   }) => {
+    oldIndex = state.lanes.length - oldIndex - 1;
+    newIndex = state.lanes.length - newIndex - 1;
     const laneToMove = state.lanes[oldIndex];
     const tempState = (0, _immutabilityHelper.default)(state, {
       lanes: {
