@@ -215,7 +215,8 @@ class BoardContainer extends _react.Component {
       draggable: false
     }), /*#__PURE__*/_react.default.createElement("div", {
       style: {
-        marginLeft: 'auto'
+        marginLeft: 'auto',
+        display: 'flex'
       }
     }, canAddLanes && /*#__PURE__*/_react.default.createElement(_Container.default, {
       orientation: "horizontal"
@@ -235,7 +236,7 @@ class BoardContainer extends _react.Component {
       lockAxis: "x",
       getChildPayload: index => this.getLaneDetails(index),
       groupName: this.groupName
-    }, reducerData.lanes.map((lane, index) => {
+    }, reducerData.lanes.slice(0).reverse().map((lane, index) => {
       const id = lane.id,
             droppable = lane.droppable,
             otherProps = (0, _objectWithoutProperties2.default)(lane, ["id", "droppable"]);
@@ -247,7 +248,7 @@ class BoardContainer extends _react.Component {
         components: components,
         id: id,
         getCardDetails: this.getCardDetails,
-        index: index,
+        index: reducerData.lanes.length - index - 1,
         droppable: droppable === undefined ? true : droppable,
         style: laneStyle || lane.style || {},
         labelStyle: lane.labelStyle || {},
