@@ -6,5 +6,8 @@ export default {
   },
   ru: {
     translation: require('./ru/translation.json')
+  },
+  he: {
+    translation: require('./he/translation.json')
   }
 }

@@ -63,8 +63,6 @@ class BoardContainer extends _react.Component {
       const _this$props = this.props,
             actions = _this$props.actions,
             handleLaneDragEnd = _this$props.handleLaneDragEnd;
-      removedIndex = this.reducerData.lanes.length - removedIndex - 1;
-      addedIndex = this.reducerData.lanes.length - addedIndex - 1;
 
       if (removedIndex !== addedIndex) {
         actions.moveLane({

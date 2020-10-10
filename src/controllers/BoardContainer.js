@@ -44,8 +44,6 @@ class BoardContainer extends Component {
 
   onLaneDrop = ({removedIndex, addedIndex, payload}) => {
     const {actions, handleLaneDragEnd} = this.props
-    removedIndex = this.reducerData.lanes.length - removedIndex - 1
-    addedIndex = this.reducerData.lanes.length - addedIndex - 1
     if (removedIndex !== addedIndex) {
       actions.moveLane({oldIndex: removedIndex, newIndex: addedIndex})
       handleLaneDragEnd(removedIndex, addedIndex, payload)
