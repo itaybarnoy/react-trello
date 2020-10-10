@@ -38,7 +38,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const CustomPopoverContainer = styled(PopoverContainer)`
   position: absolute;
-  right: 10px;
+  left: 10px;
   flex-flow: column nowrap;
 `
 

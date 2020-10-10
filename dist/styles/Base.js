@@ -286,7 +286,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  const data = (0, _taggedTemplateLiteral2.default)(["\n  position: absolute;\n  right: 10px;\n  flex-flow: column nowrap;\n"]);
+  const data = (0, _taggedTemplateLiteral2.default)(["\n  position: absolute;\n  left: 10px;\n  flex-flow: column nowrap;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
