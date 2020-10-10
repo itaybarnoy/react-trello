@@ -210,12 +210,14 @@ class BoardContainer extends _react.Component {
 
     const passthroughProps = (0, _pick.default)(this.props, ['onCardMoveAcrossLanes', 'onLaneScroll', 'onLaneDelete', 'onLaneUpdate', 'onCardClick', 'onBeforeCardDelete', 'onCardDelete', 'onCardAdd', 'onLaneClick', 'laneSortFunction', 'draggable', 'laneDraggable', 'cardDraggable', 'collapsibleLanes', 'canAddLanes', 'hideCardDeleteIcon', 'tagStyle', 'handleDragStart', 'handleDragEnd', 'cardDragClass', 'editLaneTitle', 't']);
     return /*#__PURE__*/_react.default.createElement(components.BoardWrapper, (0, _extends2.default)({
-      style: _objectSpread(_objectSpread({}, style), {}, {
-        marginLeft: 'auto'
-      })
+      style: style
     }, otherProps, {
       draggable: false
-    }), canAddLanes && /*#__PURE__*/_react.default.createElement(_Container.default, {
+    }), /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        marginLeft: 'auto'
+      }
+    }, canAddLanes && /*#__PURE__*/_react.default.createElement(_Container.default, {
       orientation: "horizontal"
     }, editable && !addLaneMode ? /*#__PURE__*/_react.default.createElement(components.NewLaneSection, {
       t: t,
@@ -233,7 +235,7 @@ class BoardContainer extends _react.Component {
       lockAxis: "x",
       getChildPayload: index => this.getLaneDetails(index),
       groupName: this.groupName
-    }, reducerData.lanes.slice(0).reverse().map((lane, index) => {
+    }, reducerData.lane.map((lane, index) => {
       const id = lane.id,
             droppable = lane.droppable,
             otherProps = (0, _objectWithoutProperties2.default)(lane, ["id", "droppable"]);
@@ -245,7 +247,7 @@ class BoardContainer extends _react.Component {
         components: components,
         id: id,
         getCardDetails: this.getCardDetails,
-        index: reducerData.lanes.length - index,
+        index: index,
         droppable: droppable === undefined ? true : droppable,
         style: laneStyle || lane.style || {},
         labelStyle: lane.labelStyle || {},
@@ -256,7 +258,7 @@ class BoardContainer extends _react.Component {
       return draggable && laneDraggable ? /*#__PURE__*/_react.default.createElement(_Draggable.default, {
         key: lane.id
       }, laneToRender) : laneToRender;
-    }))));
+    })))));
   }
 
 }

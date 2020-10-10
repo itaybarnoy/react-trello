@@ -164,48 +164,50 @@ class BoardContainer extends Component {
     ])
 
     return (
-      <components.BoardWrapper style={{...style, marginLeft: 'auto'}} {...otherProps} draggable={false}>
-        {canAddLanes && (
-          <Container orientation="horizontal">
-            {editable && !addLaneMode ? <components.NewLaneSection t={t} onClick={this.showEditableLane} /> : (
-              addLaneMode && <components.NewLaneForm onCancel={this.hideEditableLane} onAdd={this.addNewLane} t={t}/>
-            )}
-          </Container>
-        )}
-        <PopoverWrapper>
-          <Container
-            orientation="horizontal"
-            onDragStart={this.onDragStart}
-            dragClass={laneDragClass}
-            dropClass={laneDropClass}
-            onDrop={this.onLaneDrop}
-            lockAxis="x"
-            getChildPayload={index => this.getLaneDetails(index)}
-            groupName={this.groupName}>
-            {reducerData.lanes.slice(0).reverse().map((lane, index) => {
-              const {id, droppable, ...otherProps} = lane
-              const laneToRender = (
-                <Lane
-                  dir='rtl'
-                  key={id}
-                  boardId={this.groupName}
-                  components={components}
-                  id={id}
-                  getCardDetails={this.getCardDetails}
-                  index={reducerData.lanes.length - index}
-                  droppable={droppable === undefined ? true : droppable}
-                  style={laneStyle || lane.style || {}}
-                  labelStyle={lane.labelStyle || {}}
-                  cardStyle={this.props.cardStyle || lane.cardStyle}
-                  editable={editable && !lane.disallowAddingCard}
-                  {...otherProps}
-                  {...passthroughProps}
-                />
-              )
-              return draggable && laneDraggable ? <Draggable key={lane.id}>{laneToRender}</Draggable> : laneToRender
-            })}
-          </Container>
-        </PopoverWrapper>
+      <components.BoardWrapper style={style} {...otherProps} draggable={false}>
+        <div style={{marginLeft: 'auto'}}>
+          {canAddLanes && (
+            <Container orientation="horizontal">
+              {editable && !addLaneMode ? <components.NewLaneSection t={t} onClick={this.showEditableLane} /> : (
+                addLaneMode && <components.NewLaneForm onCancel={this.hideEditableLane} onAdd={this.addNewLane} t={t}/>
+              )}
+            </Container>
+          )}
+          <PopoverWrapper>
+            <Container
+              orientation="horizontal"
+              onDragStart={this.onDragStart}
+              dragClass={laneDragClass}
+              dropClass={laneDropClass}
+              onDrop={this.onLaneDrop}
+              lockAxis="x"
+              getChildPayload={index => this.getLaneDetails(index)}
+              groupName={this.groupName}>
+              {reducerData.lane.map((lane, index) => {
+                const {id, droppable, ...otherProps} = lane
+                const laneToRender = (
+                  <Lane
+                    dir='rtl'
+                    key={id}
+                    boardId={this.groupName}
+                    components={components}
+                    id={id}
+                    getCardDetails={this.getCardDetails}
+                    index={index}
+                    droppable={droppable === undefined ? true : droppable}
+                    style={laneStyle || lane.style || {}}
+                    labelStyle={lane.labelStyle || {}}
+                    cardStyle={this.props.cardStyle || lane.cardStyle}
+                    editable={editable && !lane.disallowAddingCard}
+                    {...otherProps}
+                    {...passthroughProps}
+                  />
+                )
+                return draggable && laneDraggable ? <Draggable key={lane.id}>{laneToRender}</Draggable> : laneToRender
+              })}
+            </Container>
+          </PopoverWrapper>
+        </div>
       </components.BoardWrapper>
     )
   }
