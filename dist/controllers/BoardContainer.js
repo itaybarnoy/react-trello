@@ -213,7 +213,16 @@ class BoardContainer extends _react.Component {
       style: style
     }, otherProps, {
       draggable: false
-    }), /*#__PURE__*/_react.default.createElement(_reactPopopo.PopoverWrapper, null, /*#__PURE__*/_react.default.createElement(_Container.default, {
+    }), canAddLanes && /*#__PURE__*/_react.default.createElement(_Container.default, {
+      orientation: "horizontal"
+    }, editable && !addLaneMode ? /*#__PURE__*/_react.default.createElement(components.NewLaneSection, {
+      t: t,
+      onClick: this.showEditableLane
+    }) : addLaneMode && /*#__PURE__*/_react.default.createElement(components.NewLaneForm, {
+      onCancel: this.hideEditableLane,
+      onAdd: this.addNewLane,
+      t: t
+    })), /*#__PURE__*/_react.default.createElement(_reactPopopo.PopoverWrapper, null, /*#__PURE__*/_react.default.createElement(_Container.default, {
       orientation: "horizontal",
       onDragStart: this.onDragStart,
       dragClass: laneDragClass,
@@ -221,8 +230,11 @@ class BoardContainer extends _react.Component {
       onDrop: this.onLaneDrop,
       lockAxis: "x",
       getChildPayload: index => this.getLaneDetails(index),
-      groupName: this.groupName
-    }, reducerData.lanes.map((lane, index) => {
+      groupName: this.groupName,
+      style: {
+        marginLeft: 'auto'
+      }
+    }, reducerData.lanes.slice(0).reverse().map((lane, index) => {
       const id = lane.id,
             droppable = lane.droppable,
             otherProps = (0, _objectWithoutProperties2.default)(lane, ["id", "droppable"]);
@@ -245,16 +257,7 @@ class BoardContainer extends _react.Component {
       return draggable && laneDraggable ? /*#__PURE__*/_react.default.createElement(_Draggable.default, {
         key: lane.id
       }, laneToRender) : laneToRender;
-    }))), canAddLanes && /*#__PURE__*/_react.default.createElement(_Container.default, {
-      orientation: "horizontal"
-    }, editable && !addLaneMode ? /*#__PURE__*/_react.default.createElement(components.NewLaneSection, {
-      t: t,
-      onClick: this.showEditableLane
-    }) : addLaneMode && /*#__PURE__*/_react.default.createElement(components.NewLaneForm, {
-      onCancel: this.hideEditableLane,
-      onAdd: this.addNewLane,
-      t: t
-    })));
+    }))));
   }
 
 }

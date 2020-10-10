@@ -165,6 +165,13 @@ class BoardContainer extends Component {
 
     return (
       <components.BoardWrapper style={style} {...otherProps} draggable={false}>
+        {canAddLanes && (
+          <Container orientation="horizontal">
+            {editable && !addLaneMode ? <components.NewLaneSection t={t} onClick={this.showEditableLane} /> : (
+              addLaneMode && <components.NewLaneForm onCancel={this.hideEditableLane} onAdd={this.addNewLane} t={t}/>
+            )}
+          </Container>
+        )}
         <PopoverWrapper>
           <Container
             orientation="horizontal"
@@ -174,8 +181,11 @@ class BoardContainer extends Component {
             onDrop={this.onLaneDrop}
             lockAxis="x"
             getChildPayload={index => this.getLaneDetails(index)}
-            groupName={this.groupName}>
-            {reducerData.lanes.map((lane, index) => {
+            groupName={this.groupName}
+            style={{
+              marginLeft: 'auto'
+            }}>
+            {reducerData.lanes.slice(0).reverse().map((lane, index) => {
               const {id, droppable, ...otherProps} = lane
               const laneToRender = (
                 <Lane
@@ -199,13 +209,6 @@ class BoardContainer extends Component {
             })}
           </Container>
         </PopoverWrapper>
-        {canAddLanes && (
-          <Container orientation="horizontal">
-            {editable && !addLaneMode ? <components.NewLaneSection t={t} onClick={this.showEditableLane} /> : (
-              addLaneMode && <components.NewLaneForm onCancel={this.hideEditableLane} onAdd={this.addNewLane} t={t}/>
-            )}
-          </Container>
-        )}
       </components.BoardWrapper>
     )
   }
