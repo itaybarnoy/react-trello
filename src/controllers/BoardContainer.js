@@ -192,7 +192,7 @@ class BoardContainer extends Component {
                   components={components}
                   id={id}
                   getCardDetails={this.getCardDetails}
-                  index={lanes.length - index}
+                  index={reducerData.lanes.length - index}
                   droppable={droppable === undefined ? true : droppable}
                   style={laneStyle || lane.style || {}}
                   labelStyle={lane.labelStyle || {}}
