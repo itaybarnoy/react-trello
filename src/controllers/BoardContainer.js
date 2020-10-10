@@ -183,7 +183,7 @@ class BoardContainer extends Component {
               lockAxis="x"
               getChildPayload={index => this.getLaneDetails(index)}
               groupName={this.groupName}>
-              {reducerData.lane.map((lane, index) => {
+              {reducerData.lanes.map((lane, index) => {
                 const {id, droppable, ...otherProps} = lane
                 const laneToRender = (
                   <Lane

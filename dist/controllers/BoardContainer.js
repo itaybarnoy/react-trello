@@ -235,7 +235,7 @@ class BoardContainer extends _react.Component {
       lockAxis: "x",
       getChildPayload: index => this.getLaneDetails(index),
       groupName: this.groupName
-    }, reducerData.lane.map((lane, index) => {
+    }, reducerData.lanes.map((lane, index) => {
       const id = lane.id,
             droppable = lane.droppable,
             otherProps = (0, _objectWithoutProperties2.default)(lane, ["id", "droppable"]);
