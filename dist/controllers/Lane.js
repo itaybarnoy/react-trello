@@ -232,6 +232,7 @@ class Lane extends _react.Component {
         shouldAcceptDrop: this.shouldAcceptDrop,
         getChildPayload: index => this.props.getCardDetails(id, index)
       }, cardList), editable && !addCardMode && /*#__PURE__*/_react.default.createElement(components.AddCardLink, {
+        laneId: this.props.id,
         onClick: this.showEditableCard,
         t: t
       }), addCardMode && /*#__PURE__*/_react.default.createElement(components.NewCardForm, {
