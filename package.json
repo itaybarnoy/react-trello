@@ -1,6 +1,6 @@
 {
-  "name": "react-trello",
-  "version": "2.4.1",
+  "name": "react-trello-rtl",
+  "version": "1.0.0",
   "description": "Pluggable components to add a trello like kanban board to your application",
   "main": "dist/index.js",
   "files": [
@@ -24,19 +24,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rcdexta/react-trello"
+    "url": "https://github.com/itaybarnoy/react-trello-rtl"
   },
   "keywords": [
     "react",
     "trello",
+    "rtl",
     "board"
   ],
-  "author": "RC, Prakash",
+  "author": "Itay Barnoy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rcdexta/react-trello/issues"
+    "url": "https://github.com/rcdexta/itaybarnoy/react-trello-rtl"
   },
-  "homepage": "https://github.com/rcdexta/react-trello",
+  "homepage": "https://github.com/itaybarnoy/react-trello-rtl",
   "dependencies": {
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
