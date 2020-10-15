@@ -46,4 +46,4 @@ const App = () => {
 };
 ```
 
-<img src="https://www.meep.co.il/wp-content/uploads/2020/03/MEEP_LOGO.png" width="100px;" alt=""/>
+<a href="meep.co.il"><img src="https://www.meep.co.il/wp-content/uploads/2020/03/MEEP_LOGO.png" width="100px;" alt=""/></a>
