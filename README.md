@@ -14,16 +14,15 @@ A fork of (https://github.com/rcdexta/react-trello), with some changes to improv
 
 Using the new changes I made, now you can do that:
 
-```
+```javascript
 let eventBus = undefined
 
-const setEventBus = (handle) => {
-  eventBus = handle
-}
+const setEventBus = handle => { eventBus = handle }
 
-const AddCardLink = (props) => {
+const AddCardLink = props => {
+    let { laneId } = props // now you can extract laneId from props
     const addCard = () => {
-        eventBus.publish({type: 'ADD_CARD', laneId: props.laneId, card: {id: "M1", title: "Buy Milk", label: "15 mins", description: "Also set reminder"}})
+        eventBus.publish({type: 'ADD_CARD', laneId, card: {id: "M1", title: "Buy Milk", label: "15 mins", description: "Also set reminder"}})
     }
 
     return (
