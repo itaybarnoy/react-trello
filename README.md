@@ -2,6 +2,8 @@
 
 A fork of (https://github.com/rcdexta/react-trello), with some changes to improve the project and support rtl.
 
+Recommend: read react-trello docs and this fork docs to fully understand how to use the package.
+
 ## Getting Started
 
 Install using npm
