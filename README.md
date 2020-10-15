@@ -31,17 +31,12 @@ const AddCardLink = props => {
 };
 
 const App = () => {
-    const [boardData, setBoardData] = useState(initBoardData);
-
     return (
         <Board 
-        lang='he' 
-        style={{ fontFamily: 'Varela Round'}} 
-        data={boardData} 
+        data={...} 
         components={{AddCardLink: AddCardLink}}
-        onDataChange={newData => setBoardData(newData)} 
         eventBusHandle={setEventBus}
-        draggable editable canAddLanes/>
+        />
     );
 };
 ```
