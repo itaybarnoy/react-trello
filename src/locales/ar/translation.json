@@ -1,0 +1,16 @@
+{
+  "Add another lane": "+ أضف حارة أخرى",
+  "Click to add card": "انقر لإضافة بطاقة",
+  "Delete lane": "حذف الممر",
+  "Lane actions": "إجراءات حارة",
+  "button": {
+    "Add lane": "أضف حارة",
+    "Add card": "إضافة بطاقة",
+    "Cancel": "إلغاء"
+  },
+  "placeholder": {
+    "title": "عنوان",
+    "description": "وصف",
+    "label": "ملصق"
+  }
+}

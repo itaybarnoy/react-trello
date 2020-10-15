@@ -9,5 +9,8 @@ export default {
   },
   he: {
     translation: require('./he/translation.json')
+  },
+  ar: {
+    translation: require('./ar/translation.json')
   }
 }
